@@ -43,5 +43,7 @@ RUN apt-get install -y locales && \
 ENV LANG=en_US.UTF-8 \
       LC_ALL=en_US.UTF-8
 
+ADD ./user-setup.sh /
+
 EXPOSE 22
 ENTRYPOINT ["/usr/sbin/sshd", "-D"]
