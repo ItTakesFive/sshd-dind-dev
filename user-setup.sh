@@ -14,7 +14,12 @@ if [ -z "$USERNAME" ]; then
 fi
 
 echo "Create User: $USERNAME"
-useradd -s /bin/zsh $USERNAME
+
+if [ -e "/home/$USERNAME" ]; then 
+  useradd -s /bin/zsh $USERNAME
+else
+  useradd -m -s /bin/zsh $USERNAME
+fi
 
 echo "Setup $USERNAME password"
 passwd "$USERNAME"

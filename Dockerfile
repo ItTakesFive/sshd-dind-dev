@@ -44,6 +44,9 @@ ENV LANG=en_US.UTF-8 \
       LC_ALL=en_US.UTF-8
 
 ADD ./user-setup.sh /
+ADD ./dev-setup.sh /
+ADD ./init.toml /
+ADD ./.tmux.conf.local /tmux.conf.local
 
 EXPOSE 22
 ENTRYPOINT ["/usr/sbin/sshd", "-D"]
